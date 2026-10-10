@@ -1,0 +1,171 @@
+﻿body {
+    background-image: url('../images/background.png'); /* חקירה עצמית - תמונת רקע */
+    background-size: cover; /* חקירה עצמית - התמונה תכסה את כל המסך */
+    background-position: center; /* חקירה עצמית - ממרכז את התמונה */
+    background-attachment: fixed; /* חקירה עצמית - התמונה לא תזוז כשתגלול מטה */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    direction: rtl; /* נלמד - כיוון האתר מימין לשמאל */
+}
+
+.form-wrapper {
+    width: 700px;
+    margin: 0 auto; /* נלמד - ממרכז את הקופסה לאמצע */
+    padding: 20px;
+}
+
+.center-title {
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px; /* חקירה עצמית - פינות מעוגלות */
+}
+
+.input-row {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px; /* חקירה עצמית - פינות מעוגלות */
+}
+
+.section-title {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 24px;
+    background-color: #f4cccc; /* חקירה עצמית (צבע לבן עם מעט שקיפות) */
+    padding: 5px 15px;
+    border-radius: 10px; /* חקירה עצמית - פינות מעוגלות */
+    display: inline-block;
+}
+
+.section-box {
+    background-color: #FFFFF4;
+    border-radius: 15px; /* חקירה עצמית - פינות מעוגלות */
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* חקירה עצמית - הצללה יפה סביב הקופסה */
+}
+
+.options-column {
+    display: inline-block; /* נלמד - ממקם אלמנטים בשורה */
+    width: 40%;
+    vertical-align: middle;
+}
+
+.images-column {
+    display: inline-block; /* נלמד - ממקם אלמנטים בשורה */
+    width: 55%;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.option-item {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.option-text {
+    vertical-align: middle;
+}
+
+.main-img {
+    width: 120px;
+    height: 120px;
+}
+
+.side-img {
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.hidden-img {
+    display: none; /* נלמד - מעלים אלמנט לחלוטין מהמסך */
+}
+
+.dimmed-img {
+    opacity: 0.3; /* חקירה עצמית - אטימות של 30% (יוצר מראה חצי שקוף) */
+    transition: opacity 0.3s ease; /* חקירה עצמית - גורם לשינוי השקיפות להראות חלק כמו אנימציה */
+}
+
+.active-img {
+    opacity: 1; /* חקירה עצמית - אטימות מלאה של התמונה */
+    transition: opacity 0.3s ease; /* חקירה עצמית - מעבר חלק גם בחזרה */
+}
+
+.submit-row {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#submitBtn {
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 5px; /* חקירה עצמית - פינות מעוגלות */
+    border: 1px solid #ccc;
+    cursor: pointer; /* חקירה עצמית - סמן עכבר משתנה לכף יד כשעוברים מעל הכפתור */
+}
+
+/* הגדרות חקירה עצמית לכפתור בהתאם למצב ה-disabled ב-HTML */
+#submitBtn:disabled {
+    background-color: #f0f0f0; /* אפור בהיר לכפתור נעול */
+    color: #a0a0a0; /* טקסט אפור לכפתור נעול */
+    cursor: not-allowed; /* סמן "אסור" למעבר עכבר */
+}
+
+#submitBtn:not(:disabled) {
+    background-color: #4CAF50; /* ירוק חי לכפתור פעיל (כשהמשתמש מילא הכל) */
+    color: white; /* טקסט לבן לניגודיות */
+    border: none;
+}
+
+/* === עיצובי החלון הקופץ המסכם בסוף (Modal) - חקירה עצמית === */
+#modalOverlay {
+    position: fixed; /* מקבע את האזור השחור השקוף על המסך כולו */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* שחור עם 70% אטימות (כדי לראות קצת את האתר מאחור) */
+    text-align: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px; /* חקירה עצמית - פינות מעוגלות */
+    width: 500px;
+    margin: 100px auto 0 auto; /* מרחיק אותו 100 פיקסלים מהתקרה וממרכז אותו באמצע */
+    text-align: center;
+    border: 2px solid black;
+}
+
+.happy-meal-img {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+#modalImages {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* חקירה עצמית - פינות מעוגלות */
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.modal-main-img {
+    width: 80px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
