@@ -1,0 +1,133 @@
+﻿<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <title>הזמנת ארוחה</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <!-- CSS -->
+    <!--<link href="styles/reset.css" rel="stylesheet" />-->
+    <link href="styles/myStyle.css" rel="stylesheet" />
+
+    <!-- Scripts -->
+    <script src="jScripts/JavaScript.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="form-wrapper">
+
+    <!-- כותרת ראשית לעמוד H1  -->
+    <h1 class="center-title">הזמנת ארוחה</h1>
+
+    <!-- אזור הזנת שם -->
+    <div class="input-row">
+        <span>שם המזמין: </span>
+        <!-- אירוע oninput (מזהה כל שינוי בתיבה, כולל הדבקה בעכבר) וקורא לפונקציית האימות -->
+        <input type="text" id="childName" oninput="checkValidation()" />    
+    </div>
+
+    <!-- כותרות משנה h3 לפי ההיררכיה -->
+    <h3 class="section-title">מנה עיקרית (חובה)</h3>
+    <div class="section-box">
+        <div class="options-column">
+            <!-- כפתורי הרדיו - קוראים בלחיצה לפונקציה ושולחים את השם והנתיב לתמונה -->
+            <div class="option-item">
+                <input type="radio" id="rBurger" name="meal" value="המבורגר" onclick="changeMainImage('המבורגר', 'images/burger.png')" />
+                <label for="rBurger" class="option-text">המבורגר</label>
+            </div>
+            <div class="option-item">
+                <input type="radio" id="rNuggets" name="meal" value="נאגטס" onclick="changeMainImage('נאגטס', 'images/nuggets.png')" />
+                <label for="rNuggets" class="option-text">נאגטס</label>
+            </div>
+            <div class="option-item">
+                <input type="radio" id="rSchnitzel" name="meal" value="אצבע שניצל תירס" onclick="changeMainImage('אצבע שניצל תירס', 'images/schnitzel.png')" />
+                <label for="rSchnitzel" class="option-text">אצבעות שניצל תירס</label>
+            </div>
+        </div>
+        <div class="images-column">
+            <!-- תמונות המנה העיקרית מוסתרות כברירת מחדל בעזרת ה-class של hidden-img -->
+            <img id="img-burger" src="images/burger.png" alt="המבורגר" class="hidden-img main-img" />
+            <img id="img-nuggets" src="images/nuggets.png" alt="נאגטס" class="hidden-img main-img" />
+            <img id="img-schnitzel" src="images/schnitzel.png" alt="שניצל תירס" class="hidden-img main-img" />
+        </div>
+    </div>
+
+    <h3 class="section-title">תוספות בצד (אופציונלי)</h3>
+    <div class="section-box">
+        <div class="options-column">
+            <!-- כפתורי ה-Checkbox (חקירה עצמית) -->
+            <div class="option-item">
+                <input type="checkbox" id="cbSalad" value="סלט קטן" class="cb-extra" onclick="toggleExtraImg('img-salad')" />
+                <label for="cbSalad" class="option-text">סלט קטן</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="cbFries" value="צ'יפס" class="cb-extra" onclick="toggleExtraImg('img-fries')" />
+                <label for="cbFries" class="option-text">צ'יפס</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="cbWedges" value="פוטטוס" class="cb-extra" onclick="toggleExtraImg('img-wedges')" />
+                <label for="cbWedges" class="option-text">פוטטוס</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="cbOnion" value="טבעות בצל" class="cb-extra" onclick="toggleExtraImg('img-onion')" />
+                <label for="cbOnion" class="option-text">טבעות בצל</label>
+            </div>
+        </div>
+        <div class="images-column">
+            <!-- תמונות הצד מתחילות כולן חצי שקופות הודות ל-class dimmed-img -->
+            <img id="img-salad" src="images/salad.png" alt="סלט קטן" class="dimmed-img side-img" />
+            <img id="img-fries" src="images/fries.png" alt="צ'יפס" class="dimmed-img side-img" />
+            <img id="img-wedges" src="images/wedges.png" alt="פוטטוס" class="dimmed-img side-img" />
+            <img id="img-onion" src="images/onion.png" alt="טבעות בצל" class="dimmed-img side-img" />
+        </div>
+    </div>
+
+    <h3 class="section-title">שתייה (אופציונלי)</h3>
+    <div class="section-box">
+        <div class="options-column">
+            <div class="option-item">
+                <input type="checkbox" id="cbCola" value="קולה" class="cb-extra" onclick="toggleExtraImg('img-cola')" />
+                <label for="cbCola" class="option-text">קולה</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="cbWater" value="מים" class="cb-extra" onclick="toggleExtraImg('img-water')" />
+                <label for="cbWater" class="option-text">מים</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="cbApple" value="מיץ תפוחים" class="cb-extra" onclick="toggleExtraImg('img-apple')" />
+                <label for="cbApple" class="option-text">מיץ תפוחים</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="cbGrape" value="מיץ ענבים" class="cb-extra" onclick="toggleExtraImg('img-grape')" />
+                <label for="cbGrape" class="option-text">מיץ ענבים</label>
+            </div>
+        </div>
+        <div class="images-column">
+            <img id="img-cola" src="images/cola.png" alt="קולה" class="dimmed-img side-img" />
+            <img id="img-water" src="images/water.png" alt="מים" class="dimmed-img side-img" />
+            <img id="img-apple" src="images/apple.png" alt="מיץ תפוחים" class="dimmed-img side-img" />
+            <img id="img-grape" src="images/grape.png" alt="מיץ ענבים" class="dimmed-img side-img" />
+        </div>
+    </div>
+
+    <!-- שורת כפתור השליחה. מתחיל נעול (disabled) -->
+    <div class="submit-row">
+        <input type="button" id="submitBtn" disabled="disabled" value="שלח הזמנה!" onclick="submitForm()" />
+    </div>
+
+</div>
+
+<!-- אזור החלון הקופץ שמוסתר בהתחלה (מחלקה hidden-img מפעילה את ה-display: none) -->
+<div id="modalOverlay" class="hidden-img">
+    <div class="modal-content">
+        <h2>סיכום הזמנה</h2>
+        <!-- תמונת ה-Happy Meal המופיעה תמיד בחלון הסיכום -->
+        <img src="images/happy_meal.png" alt="Happy Meal" class="happy-meal-img" />
+        <div id="modalText"></div> <!-- לכאן מובא הטקסט מ-JS -->
+        <div id="modalImages"></div> <!-- לכאן מובאות התמונות מ-JS -->
+        <input type="button" class="close-btn" value="אישור" onclick="closeModal()" />
+    </div>
+</div>
+</body>
+</html>
